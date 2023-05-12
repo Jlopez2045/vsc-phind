@@ -1859,24 +1859,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"phind@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "phind@workspace:."
-  dependencies:
-    "@types/glob": ^8.1.0
-    "@types/mocha": ^10.0.1
-    "@types/node": 16.x
-    "@types/vscode": ^1.77.0
-    "@typescript-eslint/eslint-plugin": ^5.56.0
-    "@typescript-eslint/parser": ^5.56.0
-    "@vscode/test-electron": ^2.3.0
-    eslint: ^8.36.0
-    glob: ^8.1.0
-    mocha: ^10.2.0
-    typescript: ^4.9.5
-  languageName: unknown
-  linkType: soft
-
 "picomatch@npm:^2.0.4, picomatch@npm:^2.2.1, picomatch@npm:^2.3.1":
   version: 2.3.1
   resolution: "picomatch@npm:2.3.1"
@@ -2323,6 +2305,24 @@ __metadata:
   checksum: 474acf1146cb2701fe3b074892217553dfcf9a031280919ba1b8d651a068c9b15d863b7303cb15bd00a862b498e6cf4ad7b4a08fb134edd5a6f7641681cb54a2
   languageName: node
   linkType: hard
+
+"vsc-phind@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "vsc-phind@workspace:."
+  dependencies:
+    "@types/glob": ^8.1.0
+    "@types/mocha": ^10.0.1
+    "@types/node": 16.x
+    "@types/vscode": ^1.77.0
+    "@typescript-eslint/eslint-plugin": ^5.56.0
+    "@typescript-eslint/parser": ^5.56.0
+    "@vscode/test-electron": ^2.3.0
+    eslint: ^8.36.0
+    glob: ^8.1.0
+    mocha: ^10.2.0
+    typescript: ^4.9.5
+  languageName: unknown
+  linkType: soft
 
 "which@npm:^2.0.1, which@npm:^2.0.2":
   version: 2.0.2
