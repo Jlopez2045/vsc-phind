@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Phind</title>
+  </head>
+  <style>
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    
+    /* form {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+      padding: 1rem;
+    }
+
+    .border:first-child {
+      border-image: linear-gradient(90deg,#575a7b,#575a7b 20%,#f9655b 0,#f9655b 40%,#f5c070 0,#f5c070 60%,#6658ea 0,#6658ea 80%,#fcc 0) 1;
+      border-top: 4px solid;
+    }
+
+    form textarea {
+      padding: 1rem;
+      background-color: var(--vscode-input-background);
+      color: var(--vscode-input-foreground);
+      border: 1px solid var(--vscode-button-border,transparent);
+      font-size: 1rem;
+      min-height: 10vh;
+      resize: vertical;
+    }
+
+    form textarea:first-of-type {
+      margin-top: -2rem;
+    }
+
+    form button[type="submit"] {
+      padding: 1rem;
+      background-color: var(--vscode-button-background);
+      color: var(--vscode-button-foreground);
+      font-size: 1rem;
+      border: 1px solid var(--vscode-button-border,transparent);
+    } */
+    iframe {
+      width: 100%;
+      height: 100%;
+    }
+  </style>
+  <body>
+    <!-- <form>
+      <div class="border"></div>
+      <textarea name="input" placeholder="Ask anything." wrap="off" required></textarea>
+      <textarea name="context" placeholder="Put any extra code or context here." wrap="off"></textarea>
+      <button type="submit">Search</button>
+      <div>Powered by <a href="https://www.phind.com">Phind</a></div>
+    </form> -->
+    <iframe id="phindFrame" src="https://www.phind.com/" frameborder="0"></iframe>
+  </body>
+  <script>
+    // const searchForm = document.querySelector('form')
+    const phindFrame = document.getElementById("phindFrame")
+
+    // searchForm.addEventListener('submit', (e) => {
+    //   e.preventDefault();
+    //   const { input, context } = e.target;
+    //   const url = `https://www.phind.com/search?q=${encodeURIComponent(input.value)}&c=${encodeURIComponent(context.value)}`;
+    //   e.target.style.display = 'none';
+    //   phindFrame.src = url;
+    //   phindFrame.style.display = 'block';
+    // });
+
+    window.addEventListener("message", (event) => {
+      const message = event.data;
+      switch (message.command) {
+        // case "updateSearch":
+        //   searchForm.context.value = message.text;
+        //   // phindFrame.src =
+        //   //   "https://www.phind.com/search?q=" + encodeURIComponent(message.text);
+        //   break;
+        case 'refresh':
+          const currentUrl = new URL(phindFrame.src);
+          const refreshCounter = currentUrl.searchParams.get('refreshCounter') || 0;
+          currentUrl.searchParams.set('refreshCounter', parseInt(refreshCounter) + 1);
+          phindFrame.src = currentUrl.toString();
+          break;
+      }
+    });
+  </script>
+</html>
+<!-- allow-forms allow-modals allow-pointer-lock allow-popups allow-popups-to-escape-sandbox allow-presentation allow-same-origin allow-scripts allow-top-navigation allow-top-navigation-by-user-activation -->
