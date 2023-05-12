@@ -1,4 +1,4 @@
-# phind Extension
+# Phind Extension
 
 Loads [Phind](https://phind.com) in Visual Studio Code sidebar.
 
